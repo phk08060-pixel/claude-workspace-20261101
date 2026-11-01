@@ -1,0 +1,15 @@
+# 🔒 민감 파일 — 절대 git에 올리지 않기
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+id_rsa*
+credentials*
+
+# 백업 파일
+*.bak
+
+# 운영체제/편집기 잡파일
+.DS_Store
+Thumbs.db

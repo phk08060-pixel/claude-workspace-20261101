@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>우리 가족을 소개합니다</title>
+<style>
+  :root {
+    --bg: #faf7f2;
+    --card: #ffffff;
+    --text: #2b2723;
+    --muted: #7a7168;
+    --line: #ebe4da;
+    --accent: #c0653f;
+    --accent-soft: #f6e6dc;
+    --shadow: 0 6px 24px rgba(60, 40, 20, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1917;
+      --card: #26211e;
+      --text: #f2ece5;
+      --muted: #a89d92;
+      --line: #3a332e;
+      --accent: #e58a63;
+      --accent-soft: #3a2a22;
+      --shadow: 0 6px 24px rgba(0, 0, 0, .35);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header {
+    text-align: center;
+    padding: 72px 0 40px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: .85rem;
+    letter-spacing: .12em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 18px 0 10px;
+    line-height: 1.25;
+    letter-spacing: -.02em;
+  }
+  header p { color: var(--muted); margin: 0; font-size: 1.05rem; }
+
+  section { padding: 28px 0 40px; }
+  h2 {
+    font-size: 1.3rem;
+    margin: 0 0 20px;
+    padding-left: 12px;
+    border-left: 4px solid var(--accent);
+  }
+
+  .members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform .2s ease;
+  }
+  .card:hover { transform: translateY(-4px); }
+  .avatar {
+    width: 84px; height: 84px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 2rem; font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), #e9a27d);
+  }
+  .card:nth-child(2) .avatar { background: linear-gradient(135deg, #7a6bb0, #b5a8dd); }
+  .card:nth-child(3) .avatar { background: linear-gradient(135deg, #3f9a8a, #8bd0c1); }
+  .name { font-size: 1.35rem; font-weight: 700; margin: 0; }
+  .born { color: var(--muted); font-size: .95rem; margin: 2px 0 18px; }
+  dl { margin: 0; text-align: left; border-top: 1px solid var(--line); }
+  .row {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 12px 2px;
+    border-bottom: 1px solid var(--line);
+  }
+  .row:last-child { border-bottom: 0; }
+  dt { color: var(--muted); font-size: .9rem; flex: none; }
+  dd { margin: 0; font-weight: 600; text-align: right; word-break: keep-all; }
+
+  .contact {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .contact h3 { margin: 0 0 4px; font-size: .9rem; color: var(--muted); font-weight: 600; }
+  .contact p { margin: 0; font-weight: 600; word-break: keep-all; }
+  .contact a { color: var(--accent); text-decoration: none; word-break: break-all; }
+  .contact a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    padding: 24px 0 56px;
+  }
+
+  @media (max-width: 820px) {
+    .members { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+    .contact { grid-template-columns: 1fr; }
+    header { padding: 48px 0 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">OUR FAMILY</span>
+    <h1>우리 가족을 소개합니다</h1>
+    <p>함께여서 더 따뜻한 세 사람의 이야기</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="members-title">
+      <h2 id="members-title">가족 구성원</h2>
+      <div class="members">
+
+        <article class="card">
+          <div class="avatar" aria-hidden="true">희</div>
+          <h3 class="name">박희경</h3>
+          <p class="born">1972년생</p>
+          <dl>
+            <div class="row"><dt>직업</dt><dd>회사원</dd></div>
+            <div class="row"><dt>직장</dt><dd>신도리코</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <div class="avatar" aria-hidden="true">성</div>
+          <h3 class="name">박성희</h3>
+          <p class="born">1978년생</p>
+          <dl>
+            <div class="row"><dt>직업</dt><dd>드레스 디자이너</dd></div>
+            <div class="row"><dt>직장</dt><dd>마리아루이즈</dd></div>
+          </dl>
+        </article>
+
+        <article class="card">
+          <div class="avatar" aria-hidden="true">채</div>
+          <h3 class="name">박채은</h3>
+          <p class="born">2021년생</p>
+          <dl>
+            <div class="row"><dt>직업</dt><dd>유치원생</dd></div>
+            <div class="row"><dt>학교</dt><dd>서울베네딕도유치원</dd></div>
+          </dl>
+        </article>
+
+      </div>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">연락처</h2>
+      <div class="contact">
+        <div>
+          <h3>전화 · 박희경</h3>
+          <p><a href="tel:+821093964462">010-9396-4462</a></p>
+        </div>
+        <div>
+          <h3>이메일</h3>
+          <p><a href="mailto:phk08060@naver.com">phk08060@naver.com</a></p>
+        </div>
+        <div>
+          <h3>주소</h3>
+          <p>서울시 성북구 동소문로34길 24</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 박씨 가족 · 2026</footer>
+</div>
+</body>
+</html>
