@@ -37,7 +37,7 @@
 - [x] 3. 작업 스케줄러 `SeongbukWeather`에 2번째 동작으로 추가 (날씨 저장 → 디스코드 전송 순서)
 - [x] 4. 예약 실행 테스트 및 progress.md, SECURITY.md(웹후크 유출 시 대응) 갱신
 
-## 계획: GitHub private 레포로 올리기 (승인 대기)
+## 계획: GitHub private 레포로 올리기 (완료 — 레포 이름은 claude-workspace-20261101)
 
 - 점검 결과: git·gh 설치됨, GitHub 로그인됨(계정 phk08060-pixel), `.gitignore` 이미 있음, 코드 속 키·웹후크 주소 없음
 - 레포 이름: `claude-workspace` (private)
