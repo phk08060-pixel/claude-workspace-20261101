@@ -19,7 +19,9 @@ claude_workspace_20261101/
 │   ├── weather.py     ← 날씨 가져오는 스크립트 (API 키 불필요)
 │   └── discord_notify.py ← weather.txt를 디스코드로 전송 (웹후크 필요)
 ├── family/
-│   └── index.html     ← 가족 소개 웹페이지 (더블클릭하면 브라우저에서 열림)
+│   ├── index.html     ← 가족 소개 웹페이지 (더블클릭하면 브라우저에서 열림)
+│   ├── vercel.json    ← Vercel 배포 설정 (보안·검색 차단 헤더)
+│   └── robots.txt     ← 검색엔진 수집 차단
 ├── tasks/
 │   ├── todo.md        ← 오늘 할 일 (체크리스트)
 │   └── progress.md    ← 한 일 기록 (아래로 계속 추가)
@@ -70,6 +72,20 @@ claude_workspace_20261101/
 - 키 노출이 의심되면 → **`SECURITY.md`** 를 열기
 
 자세한 규칙은 [CLAUDE.md](CLAUDE.md), 비상 대응은 [SECURITY.md](SECURITY.md) 를 보세요.
+
+---
+
+## 🚀 가족 페이지 Vercel 배포 방법
+
+빌드가 필요 없는 정적 사이트예요.
+
+1. [vercel.com](https://vercel.com) 로그인 → **Add New… → Project**
+2. GitHub 레포 `claude-workspace-20261101` 선택 (private 레포는 Vercel의 GitHub 연결 허용이 필요해요)
+3. **Root Directory** 를 `family` 로 지정 (중요)
+4. Framework Preset은 **Other**, Build Command·Output Directory는 비워 둠
+5. **Deploy**
+
+배포 후에는 주소를 아는 누구나 볼 수 있어요. 공개용이라 `index.html`에는 집 주소·전화번호를 넣지 않았고(지역은 "서울 성북구"까지만), 검색엔진에 노출되지 않도록 `noindex`와 `robots.txt`를 설정했어요. 단, 이건 **접속을 막는 게 아니라** 검색에 안 나오게 하는 거예요.
 
 ---
 

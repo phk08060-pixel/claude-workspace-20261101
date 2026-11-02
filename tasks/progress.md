@@ -25,3 +25,5 @@
 ## 2026-11-02
 
 16. 디스코드 웹후크 URL 변경 반영: `.env`의 `DISCORD_WEBHOOK_URL`에 새 주소 입력 확인 (형식 정상, 값은 비공개) → 전송 테스트 성공 (HTTP 204). 코드 수정은 없음
+17. 가족 페이지 Vercel 배포 준비 (배포는 사용자가 직접): 연락처에서 집 주소·전화번호 제거(이메일, "서울 성북구"만 남김), noindex·공유 미리보기 메타 추가, `family/vercel.json`·`family/robots.txt` 추가, README에 배포 방법 정리. 브라우저에서 데스크톱 2열 확인, vercel.json 형식 검사 통과
+    - 참고: 이전 커밋 기록(GitHub private 레포)에는 상세 주소·전화번호가 남아 있음

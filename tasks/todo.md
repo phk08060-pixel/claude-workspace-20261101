@@ -52,6 +52,19 @@
 - [ ] 6. `gh repo create claude-workspace --private --source=. --push`
 - [ ] 7. 레포가 private인지, `.env`가 올라가지 않았는지 확인 후 progress.md 기록
 
+## 계획: 가족 페이지 Vercel 배포 준비 (1~5 완료, 6은 사용자 몫) — 배포는 사용자가 직접
+
+- 방식: 빌드 없는 정적 사이트. Vercel에서 Root Directory를 `family`로 지정
+- 개인정보: 공개 웹에는 집 주소·전화·아이 유치원명이 누구에게나 보임 → 공개 범위 결정 필요
+- 검색 노출 방지: noindex 메타 + `robots.txt` + `X-Robots-Tag` 헤더 (주소를 아는 사람만 접속하게 하는 보호는 아님)
+
+- [x] 1. (결정) 공개용 연락처 처리 방식 선택 → 주소·전화 가리기
+- [x] 2. `family/vercel.json` 추가 (cleanUrls, 보안·noindex 헤더)
+- [x] 3. `family/robots.txt` 추가 (검색 수집 차단)
+- [x] 4. `family/index.html`에 noindex 메타, 공유 미리보기(OG) 태그 추가
+- [x] 5. 브라우저에서 화면 확인 + README에 "Vercel 배포 방법" 정리 + 기록
+- [ ] 6. (사용자) Vercel에서 GitHub 레포 연결 → Root Directory `family` → Deploy
+
 ## 나중에
 
 - [ ] (여기에 추가)
