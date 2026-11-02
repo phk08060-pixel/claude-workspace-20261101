@@ -21,3 +21,7 @@
 13. 가족 페이지 연락처 섹션에 전화·이메일·주소 입력 (전화·이메일은 클릭 링크), 브라우저에서 텍스트 확인
 14. README.md 폴더 구조 최신화, `git init`(이 폴더 전용 작성자: GitHub noreply), 첫 커밋 "Initial setup" (d4bdba6)
 15. GitHub private 레포 `phk08060-pixel/claude-workspace-20261101` 생성 및 push (family 포함). 기존 `claude-workspace` 레포는 이름이 겹쳐 건드리지 않음. 확인: 레포 PRIVATE, `.env` 미업로드, 로컬·원격 커밋 일치
+
+## 2026-11-02
+
+16. 디스코드 웹후크 URL 변경 반영: `.env`의 `DISCORD_WEBHOOK_URL`에 새 주소 입력 확인 (형식 정상, 값은 비공개) → 전송 테스트 성공 (HTTP 204). 코드 수정은 없음
