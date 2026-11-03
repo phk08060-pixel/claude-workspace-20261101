@@ -40,3 +40,5 @@
     - `scripts/dev_server.py` 작성(로컬 전용, `.env.local`을 읽어 `/config.js` 제공)
     - `family/index.html` 맨 아래에 방명록 폼·목록 추가(`textContent` 출력)
 23. 로컬 테스트 통과: 읽기 200, 익명 삭제는 권한 오류로 차단, 글쓰기 후 목록 갱신, `<b>` 태그가 글자 그대로 표시, 밝은·어두운 모드 화면 확인. 테스트 글 1건("테스트")이 DB에 남아 있음(대시보드에서 삭제 필요). 커밋·Vercel 반영은 아직 안 함
+24. Vercel 방명록용 설정 전달 방식 결정(환경변수 + 빌드 때 생성): `family/build-config.js` 작성(환경변수로 `config.js` 생성, 값은 출력하지 않음, 환경변수가 없으면 경고만 하고 방명록 꺼진 채 배포), `.gitignore`에 `family/config.js` 추가. 내 PC 시험 통과(생성 OK·키 길이 208·미설정 시 경고만·git 무시 확인). 커밋·Vercel 설정은 아직
+    - 참고: 예전 Vercel 주소 3개는 `DEPLOYMENT_NOT_FOUND`로 바뀜 → 새 배포 주소 확인 필요

@@ -22,6 +22,7 @@ claude_workspace_20261101/
 │   └── dev_server.py  ← 가족 페이지 로컬 테스트 서버 (방명록용, 이 PC에서만 접속)
 ├── family/
 │   ├── index.html     ← 가족 소개 웹페이지 (더블클릭하면 브라우저에서 열림)
+│   ├── build-config.js ← Vercel 배포 때 방명록 설정(config.js)을 환경변수로 생성
 │   ├── vercel.json    ← Vercel 배포 설정 (보안·검색 차단 헤더)
 │   └── robots.txt     ← 검색엔진 수집 차단
 ├── tasks/
@@ -104,7 +105,7 @@ claude_workspace_20261101/
 
 - 파일을 더블클릭해서 열면 방명록은 꺼져 있어요 (설정을 전달해 주는 서버가 없기 때문). 나머지 페이지는 그대로 보여요.
 - 수정·삭제는 방문자가 못 해요. 글을 지우려면 Supabase 대시보드 → Table Editor에서 직접 삭제하세요.
-- Vercel 배포에서 방명록을 동작시키는 방법은 아직 정하지 않았어요 (`.env.local`은 GitHub에 올라가지 않기 때문).
+- Vercel 배포에서 방명록 켜기: Vercel → Settings → Environment Variables에 `SUPABASE_URL`, `SUPABASE_ANON_KEY` 등록 → Build Command `node build-config.js`, Output Directory `.`, Root Directory `family` → Redeploy. 배포할 때 `family/build-config.js`가 `config.js`를 만들어 줘요 (`family/config.js`는 GitHub에 올라가지 않아요).
 
 ---
 

@@ -80,7 +80,20 @@
 - [x] 5. `family/index.html` 맨 아래에 폼 + 목록 추가 (`textContent` 사용, 글자 수 제한, 등록 후 목록 갱신, 다크모드·모바일 대응)
 - [x] 6. 로컬 서버를 띄워 글 작성 → 목록 표시 확인 (빈 값·긴 글 거부는 브라우저 입력 제한에 맡기고 직접 시험하진 않음)
 - [x] 7. progress.md 기록, README에 로컬 실행 방법 추가
-- [ ] 8. (나중에) Vercel 배포에서도 방명록이 동작하게 주소·키 전달 방법 정하기, 테스트 글 삭제, 커밋
+- [x] 8. Vercel 배포에서도 방명록이 동작하게 하는 방법 정하기 → 환경변수 + 빌드 때 `config.js` 자동 생성으로 결정
+- [ ] 9. 테스트 글("테스트") 삭제 (사용자, Supabase Table Editor)
+
+## 계획: Vercel에서 방명록 켜기 (코드는 완료, 커밋·Vercel 설정은 아직)
+
+- 방식: Vercel 환경변수 `SUPABASE_URL`, `SUPABASE_ANON_KEY` → 배포할 때 `node build-config.js`가 `config.js` 생성 (키를 레포에 넣지 않음)
+
+- [x] 1. `family/build-config.js` 작성 (환경변수가 없으면 방명록만 꺼진 채로 배포)
+- [x] 2. `.gitignore`에 `family/config.js` 추가
+- [x] 3. 내 PC에서 시험 (환경변수 있을 때 생성 OK, 없을 때 경고만, git 무시 확인)
+- [ ] 4. 커밋·푸시
+- [ ] 5. (사용자) Vercel Settings → Environment Variables 2개 등록
+- [ ] 6. (사용자) Build Command `node build-config.js`, Output Directory `.`, Root Directory `family` → Redeploy
+- [ ] 7. 배포 주소에서 방명록 동작 확인
 
 ## 나중에
 

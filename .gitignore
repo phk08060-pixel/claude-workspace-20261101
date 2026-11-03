@@ -8,6 +8,9 @@
 id_rsa*
 credentials*
 
+# 배포 때 자동 생성되는 방명록 설정 (키 포함)
+family/config.js
+
 # 백업 파일
 *.bak
 
