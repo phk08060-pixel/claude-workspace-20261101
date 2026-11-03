@@ -13,11 +13,13 @@ claude_workspace_20261101/
 ├── SECURITY.md        ← 🚨 키 노출 시 비상 매뉴얼
 ├── README.md          ← 지금 보는 파일 (폴더 안내)
 ├── .env               ← 🔒 환경변수(키) 보관 (GitHub에 올라가지 않음, 절대 공유 금지)
+├── .env.local         ← 🔒 방명록(Supabase) 주소·공개용 키 (GitHub에 올라가지 않음)
 ├── .gitignore         ← 민감 파일이 git에 올라가지 않게 막기
 ├── weather.txt        ← 성북구 날씨·미세먼지 (매일 09:00 자동 갱신)
 ├── scripts/
 │   ├── weather.py     ← 날씨 가져오는 스크립트 (API 키 불필요)
-│   └── discord_notify.py ← weather.txt를 디스코드로 전송 (웹후크 필요)
+│   ├── discord_notify.py ← weather.txt를 디스코드로 전송 (웹후크 필요)
+│   └── dev_server.py  ← 가족 페이지 로컬 테스트 서버 (방명록용, 이 PC에서만 접속)
 ├── family/
 │   ├── index.html     ← 가족 소개 웹페이지 (더블클릭하면 브라우저에서 열림)
 │   ├── vercel.json    ← Vercel 배포 설정 (보안·검색 차단 헤더)
@@ -25,7 +27,9 @@ claude_workspace_20261101/
 ├── tasks/
 │   ├── todo.md        ← 오늘 할 일 (체크리스트)
 │   └── progress.md    ← 한 일 기록 (아래로 계속 추가)
-└── docs/              ← 참고 문서 보관 (현재 비어 있음)
+└── docs/
+    ├── messages-schema.sql   ← 방명록 테이블·RLS (Supabase SQL Editor에 붙여넣기)
+    └── guestbook-schema.sql  ← 처음 설계안 (messages-schema.sql로 대체됨)
 ```
 
 ## 📄 파일 설명
@@ -86,6 +90,21 @@ claude_workspace_20261101/
 5. **Deploy**
 
 배포 후에는 주소를 아는 누구나 볼 수 있어요. 공개용이라 `index.html`에는 집 주소·전화번호를 넣지 않았고(지역은 "서울 성북구"까지만), 검색엔진에 노출되지 않도록 `noindex`와 `robots.txt`를 설정했어요. 단, 이건 **접속을 막는 게 아니라** 검색에 안 나오게 하는 거예요.
+
+---
+
+## 💬 방명록 로컬 테스트
+
+가족 페이지 맨 아래 방명록은 Supabase(`messages` 테이블)를 사용해요.
+
+1. `.env.local`에 `SUPABASE_URL`, `SUPABASE_ANON_KEY`를 적어요 (공개용 `anon` 키만. `service_role` 키는 절대 넣지 않기)
+2. Supabase 대시보드 SQL Editor에 `docs/messages-schema.sql` 내용을 붙여넣고 Run (한 번만, 여러 번 실행해도 안전)
+3. 터미널에서 실행: `python scripts/dev_server.py`
+4. 브라우저에서 `http://127.0.0.1:8000/` 접속 (종료는 `Ctrl+C`)
+
+- 파일을 더블클릭해서 열면 방명록은 꺼져 있어요 (설정을 전달해 주는 서버가 없기 때문). 나머지 페이지는 그대로 보여요.
+- 수정·삭제는 방문자가 못 해요. 글을 지우려면 Supabase 대시보드 → Table Editor에서 직접 삭제하세요.
+- Vercel 배포에서 방명록을 동작시키는 방법은 아직 정하지 않았어요 (`.env.local`은 GitHub에 올라가지 않기 때문).
 
 ---
 

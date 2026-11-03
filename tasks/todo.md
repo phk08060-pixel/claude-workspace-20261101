@@ -65,6 +65,23 @@
 - [x] 5. 브라우저에서 화면 확인 + README에 "Vercel 배포 방법" 정리 + 기록
 - [ ] 6. (사용자) Vercel에서 GitHub 레포 연결 → Root Directory `family` → Deploy
 
+## 계획: 가족 페이지 방명록(messages) — 로컬 테스트까지 (완료, 커밋·배포 반영은 아직)
+
+- 점검 결과: 받은 키는 공개용 `anon` 역할(service_role 아님), 프로젝트 주소와 일치. `.env.local`은 `.gitignore`의 `.env.*`에 이미 걸림
+- 키·주소는 `.env.local`에만 저장 (이 문서·커밋·채팅에는 쓰지 않음, 화면엔 마스킹)
+- 정적 HTML은 `.env.local`을 직접 못 읽음 → 로컬 전용 서버(`scripts/dev_server.py`)가 `.env.local`을 읽어 `/config.js`를 만들어 줌
+- 이전 설계(`docs/guestbook-schema.sql`, 테이블명 guestbook)는 이번 요청(messages, content)이 대신함 → 새 파일로 작성, 옛 파일은 그대로 둠
+- 이번 범위는 **로컬 테스트까지**. Vercel 배포 반영과 커밋은 따로 확인
+
+- [x] 1. `.env.local` 생성 (`SUPABASE_URL`, `SUPABASE_ANON_KEY`) + `.gitignore`에 `.env.local` 줄 명시 추가
+- [x] 2. `docs/messages-schema.sql` 작성 (id, name, content, created_at + 글자 수 제한 + RLS: 누구나 읽기·쓰기, 수정·삭제 불가)
+- [x] 3. Supabase에 테이블·RLS 적용 — 사용자가 SQL Editor에서 직접 실행
+- [x] 4. `scripts/dev_server.py` 작성 (family/ 서빙 + `/config.js` 생성, 내 PC에서만 접속)
+- [x] 5. `family/index.html` 맨 아래에 폼 + 목록 추가 (`textContent` 사용, 글자 수 제한, 등록 후 목록 갱신, 다크모드·모바일 대응)
+- [x] 6. 로컬 서버를 띄워 글 작성 → 목록 표시 확인 (빈 값·긴 글 거부는 브라우저 입력 제한에 맡기고 직접 시험하진 않음)
+- [x] 7. progress.md 기록, README에 로컬 실행 방법 추가
+- [ ] 8. (나중에) Vercel 배포에서도 방명록이 동작하게 주소·키 전달 방법 정하기, 테스트 글 삭제, 커밋
+
 ## 나중에
 
 - [ ] (여기에 추가)
